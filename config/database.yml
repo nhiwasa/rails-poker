@@ -1,0 +1,27 @@
+# ====================================================================================================
+# 【注意事項】
+# 　この「database.yml」は開発環境（ローカル）のための設定ファイルです。hostの指定はlocalhostになっています。
+# 　 - 本番、ST環境、CT環境の場合はデプロイ処理の中（Capistranoの内部処理）で本ファイルを置換します。
+# 　 - 自動テストの場合は、自動テストジョブの中（Jenkinsのビルド設定）で本ファイルを置換します。
+# ====================================================================================================
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  timeout: 5000
+  host: <%= ENV["DATABASE_HOST"] %>
+  database: <%= ENV["DATABASE_NAME"] %>
+  username: <%= ENV["DATABASE_USER_NAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+
+development:
+  <<: *default
+
+staging:
+  <<: *default
+
+customer:
+  <<: *default
+
+production:
+  <<: *default
