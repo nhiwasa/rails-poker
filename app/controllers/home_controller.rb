@@ -2,29 +2,25 @@ class HomeController < ApplicationController
   def top
   end
 
+require_relative "../services/card_form"
+
   def judge
-    p "パラメータ"
-    p params[:cards]
-
     hand = params[:cards].split
-
-
-
-    suits = []
-    numbers = []
-
-    hand.each do |a|
-      suits.push a[0]
-      numbers.push a[1..2]
+    @card = CardForm.new(hand)
+    if @card.valid?
+      @card.check
     end
 
-
-    numbers = numbers.map(&:to_i).sort
-
-
-
-
-
-
   end
+
+
 end
+
+
+  #object = CardForm.new(params)
+  #if object.valid?
+    #object.judge
+    #redirect_to hoge
+  #end
+  #render error
+

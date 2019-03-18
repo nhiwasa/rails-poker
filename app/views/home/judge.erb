@@ -1,0 +1,11 @@
+<%= form_tag("/judge", method: :post) do %>
+  <%= text_field_tag :cards %>
+  <%= submit_tag "check" %>
+  <%= @card.yaku %>
+
+  <% if @card.errors.present? %>
+    <%= @card.errors %>
+
+
+  <% end %>
+<%end %>
