@@ -3,9 +3,13 @@
   <%= submit_tag "check" %>
   <%= @card.yaku %>
 
+<div>
   <% if @card.errors.present? %>
-    <%= @card.errors %>
-
+    <% @card.errors.each do |error| %>
+    <%= error %>
+    <br> 
+    <% end %>
 
   <% end %>
+</div>
 <%end %>

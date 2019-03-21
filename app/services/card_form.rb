@@ -4,8 +4,7 @@ class CardForm
   attr_reader :errors
 
   def initialize(hand)
-    #各要素に分割
-    @hand = hand
+    @hands = hand
   end
 
   def valid?
@@ -13,8 +12,10 @@ class CardForm
     @suits = []
     @numbers = []
     result = true
+    @errors = []
 
-    @hand.each do |a|
+    #入力された配列をアルファベットと数字に分ける
+    @hands.each do |a|
       @suits.push a[0]
       @numbers.push a[1..2]
     end
@@ -22,18 +23,32 @@ class CardForm
     #numbersを数値に変換して昇順に並び替え
     @numbers = @numbers.map{|x|x.to_i}.sort
 
-    if (@hand.count - @hand.uniq.count) > 0
-      @errors = "カードが重複しています。"
-    elsif @hand.count != 5
-      @errors = "5つのカード指定文字を半角スペース区切りで入力してください。（例：S1 H3 D9 C13 S11）"
+    #５つ以外の手が入力された場合
+    if @hands.count != 5
+      @errors << "5つのカード指定文字を半角スペース区切りで入力してください。（例：S1 H3 D9 C13 S11）"
       result = false
-    elsif @numbers.select{|x|x>=1 && x<=13}.count != 5
-      @errors = "5つのカード指定文字を半角スペース区切りで入力してください。（例：S1 H3 D9 C13 S11）"
+      return result
+    #カードが重複している
+    elsif @hands.uniq.count != 5
+      @errors << "カードが重複しています。"
       result = false
+      return result
+    end
 
-    elsif @suits.select{|x|x="D" || x="S" || x="H" || x="C"}.count != 5
-      @errors = "5つのカード指定文字を半角スペース区切りで入力してください。（例：S1 H3 D9 C13 S11）"
-      result = false
+    @hands.each_with_index do |hand, i|
+      number = hand[1..2].to_i
+      if [*(1..13)].include?(number) == false
+        @errors << "#{i+1}番目のカード指定文字が不正です。(#{hand})"
+        result = false
+      elsif ["S", "D", "C", "H"].include?(hand[0]) == false
+        @errors << "#{i+1}番目のカード指定文字が不正です。(#{hand})"
+        result = false
+      end
+
+    end
+
+    if @errors.present?
+      @errors << "半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。"
     end
 
     return result

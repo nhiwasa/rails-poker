@@ -1,0 +1,2 @@
+@hands.each do |hand|
+  if 
