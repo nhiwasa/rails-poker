@@ -1,15 +1,21 @@
 class HomeController < ApplicationController
+
+
+  require_relative "../services/card_form"
   def top
   end
 
-require_relative "../services/card_form"
+
 
   def judge
-    hand = params[:cards].split
+    @hand = params[:cards]
+    hand = @hand.split
     @card = CardForm.new(hand)
     if @card.valid?
       @card.check
     end
+
+
 
   end
 

@@ -8,20 +8,9 @@ class CardForm
   end
 
   def valid?
-    #スートと数の配列を作成
-    @suits = []
-    @numbers = []
+
     result = true
     @errors = []
-
-    #入力された配列をアルファベットと数字に分ける
-    @hands.each do |a|
-      @suits.push a[0]
-      @numbers.push a[1..2]
-    end
-
-    #numbersを数値に変換して昇順に並び替え
-    @numbers = @numbers.map{|x|x.to_i}.sort
 
     #５つ以外の手が入力された場合
     if @hands.count != 5
@@ -55,6 +44,16 @@ class CardForm
   end
 
   def check
+
+      #スートと数の配列を作成
+      @suits = []
+      @numbers = []
+
+      #入力された配列をアルファベットと数字に分ける
+      @hands.each do |a|
+        @suits.push a[0]
+        @numbers.push a[1..2]
+      end
 
       #numbersを数値に変換して昇順に並び替え
       numbers = @numbers.map{|x|x.to_i}.sort

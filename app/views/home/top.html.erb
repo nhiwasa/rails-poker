@@ -1,8 +1,35 @@
 
-<%= form_tag("/judge", method: :post) do %>
-<%= text_field_tag :cards %>
-<%= submit_tag "check" %>
-<% end %>
+<html>
+<head>
+  <title>Porkerhands</title>
+  <%= stylesheet_link_tag "home", :media => "all" %>
+  <meta charset="utf-8">
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="header">
+    <h1><i class="fa fa-flip-horizontal fa-hand-lizard-o"></i> Check a Porker Hand <i class="fa fa-hand-lizard-o"></i></h1>
+  </div>
+  <div class="contents">
+    <div class="form">
+      <%= form_tag("/", method: :post) do %>
+        <%= text_field_tag :cards %>
+        <%= submit_tag "check" %>
+      <% end %>
+    </div>
+    <div class="hand"><p></p></div>
+
+  </div>
+  <div class="footer">
+    <small>©Copyright 2019 porkerhands All Rights Reserved.</small>
+  </div>
+</div>
+
+</body>
+</html>
+
+
 
 
 
