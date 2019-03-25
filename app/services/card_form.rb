@@ -81,7 +81,7 @@ class CardForm
 
           #同じ数字の枚数が３枚
         elsif duplication == [1,1,3]
-          @result = "スリーカード"
+          @yaku = "スリーカード"
 
           #同じ数字の枚数が２枚と３枚が１組ずつ
         elsif duplication == [2,3]

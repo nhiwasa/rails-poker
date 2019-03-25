@@ -25,3 +25,7 @@ customer:
 
 production:
   <<: *default
+
+test:
+  <<: *default
+  database: testdb
