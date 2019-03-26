@@ -110,13 +110,5 @@ class CardForm
 
 
 
-  private
 
-  def flush?
-
-  end
-
-  def straight?
-
-  end
 end

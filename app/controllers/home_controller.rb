@@ -15,6 +15,8 @@ class HomeController < ApplicationController
       @card.check
     end
 
+    render :action => "judge"
+
 
 
   end
