@@ -3,4 +3,7 @@ Rails.application.routes .draw do
   post '/' => "home#judge"
 
   root to: 'visitors#index'
+
+
+  mount API::Root => '/api'
 end

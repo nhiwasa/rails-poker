@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
 
-  require_relative "../services/card_form"
+  #require_relative "../services/card_form"
   def top
   end
 
@@ -15,7 +15,7 @@ class HomeController < ApplicationController
       @card.check
     end
 
-    render :action => "judge"
+
 
 
 

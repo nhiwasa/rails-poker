@@ -1,4 +1,23 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+header {
+  font-family:serif;
+  text-align:center;
+}
 
+.form {
+  margin:auto 400px;
+}
+
+.hand {
+  text-align:center;
+}
+
+.error {
+  text-align:center;
+}
+
+footer {
+  text-align:center;
+}
