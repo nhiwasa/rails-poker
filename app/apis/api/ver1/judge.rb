@@ -18,9 +18,16 @@ module API
             card.check
           end
 
-          a << {card: "#{hand}", hand: "#{card.yaku}" , best: ""}
+          if card.errors.present?
+            a << {card: "#{hand}", msg: "#{card.errors[0]}"}
+            b << card.yaku
+          else
+            a << {card: "#{hand}", hand: "#{card.yaku}" , best: ""}
 
-          b << card.yaku
+            b << card.yaku
+          end
+
+
         end
 
         scores = []
@@ -43,6 +50,8 @@ module API
             scores << 2
           elsif c == "ハイカード"
             scores << 1
+          else
+            scores << 0
           end
 
 
