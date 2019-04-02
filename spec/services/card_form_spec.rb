@@ -41,55 +41,55 @@ describe CardForm do
     it "ストレートフラッシュ" do
       card = CardForm.new(["H1", "H2","H3", "H4", "H5"])
       card.check
-      expect(card.yaku).to eq "ストレートフラッシュ"
+      expect(card.role).to eq "ストレートフラッシュ"
     end
 
     it "フラッシュ" do
       card = CardForm.new(["H1", "H2","H3", "H4", "H6"])
       card.check
-      expect(card.yaku).to eq "フラッシュ"
+      expect(card.role).to eq "フラッシュ"
     end
 
     it "ストレート" do
       card = CardForm.new(["C1", "H2","H3", "H4", "H5"])
       card.check
-      expect(card.yaku).to eq "ストレート"
+      expect(card.role).to eq "ストレート"
     end
 
     it "フォーカード" do
       card = CardForm.new(["H1", "C1","D1", "S1", "H6"])
       card.check
-      expect(card.yaku).to eq "フォーカード"
+      expect(card.role).to eq "フォーカード"
     end
 
     it "スリーカード" do
       card = CardForm.new(["H1", "C1","D1", "H4", "H6"])
       card.check
-      expect(card.yaku).to eq "スリーカード"
+      expect(card.role).to eq "スリーカード"
     end
 
     it "フルハウス" do
       card = CardForm.new(["H1", "C1","D1", "C6", "H6"])
       card.check
-      expect(card.yaku).to eq "フルハウス"
+      expect(card.role).to eq "フルハウス"
     end
 
     it "ツーペア" do
       card = CardForm.new(["H1", "C1","H3", "C3", "H6"])
       card.check
-      expect(card.yaku).to eq "ツーペア"
+      expect(card.role).to eq "ツーペア"
     end
 
     it "ワンペア" do
       card = CardForm.new(["H1", "C1","H3", "H4", "H6"])
       card.check
-      expect(card.yaku).to eq "ワンペア"
+      expect(card.role).to eq "ワンペア"
     end
 
     it "ハイカード" do
       card = CardForm.new(["H1", "H2","H3", "H4", "C6"])
       card.check
-      expect(card.yaku).to eq "ハイカード"
+      expect(card.role).to eq "ハイカード"
     end
   end
 

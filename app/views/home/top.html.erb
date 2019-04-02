@@ -7,14 +7,14 @@
 </head>
 <body>
 
-
+  <div class="bkRGBA">
   <header>
     <h1> Check a Porker Hand </h1>
   </header>
   <div class="contents">
     <div class="form">
-      <%= form_tag("/", method: :post) do %>
-        <%= text_field_tag :cards %>
+      <%= form_for("/", method: :post) do %>
+        <%= text_field_tag :cards,'', :placeholder => "S10 H11 D12 C13 H1" %>
         <%= submit_tag "check" %>
       <% end %>
     </div>
@@ -24,7 +24,7 @@
   <footer>
     <small>©Copyright 2019 porkerhands All Rights Reserved.</small>
   </footer>
-
+  </div>
 
 </body>
 </html>

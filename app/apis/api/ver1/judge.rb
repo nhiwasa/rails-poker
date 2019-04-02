@@ -20,11 +20,11 @@ module API
 
           if card.errors.present?
             a << {card: "#{hand}", msg: "#{card.errors[0]}"}
-            b << card.yaku
+            b << card.role
           else
-            a << {card: "#{hand}", hand: "#{card.yaku}" , best: ""}
+            a << {card: "#{hand}", hand: "#{card.role}" , best: ""}
 
-            b << card.yaku
+            b << card.role
           end
 
 

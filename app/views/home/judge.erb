@@ -6,7 +6,7 @@
 </head>
 <body>
 
-
+  <div class="bkRGBA">
   <header>
     <h1>Check a Porker Hand</h1>
   </header>
@@ -17,7 +17,7 @@
         <%= submit_tag "check" %>
       <% end %>
     </div>
-    <div class="hand"><p><%= @card.yaku %></p></div>
+    <div class="hand"><p><%= @card.role %></p></div>
     <div>
       <div class="error">
         <% if @card.errors.present? %>
@@ -33,7 +33,7 @@
   <footer>
     <small>©Copyright 2019 porkerhands All Rights Reserved.</small>
   </footer>
-
+  </div>
 
 </body>
 </html>

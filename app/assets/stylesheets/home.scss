@@ -21,3 +21,21 @@ header {
 footer {
   text-align:center;
 }
+
+
+body {
+  background-image: url(https://assets.entrepreneur.com/content/3x2/2000/20151023204134-poker-game-gambling-gamble-cards-money-chips-game.jpeg?width=700&crop=2:1);
+  background-repeat: no-repeat;
+  background-size:cover;
+  height: 100vh;
+}
+
+.bkRGBA{
+  /* 背景画像の透過用css */
+  background: rgba(255,255,255,0.5);
+  background-size:cover;
+  height: 50vh;
+
+
+
+}
