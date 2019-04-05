@@ -1,14 +1,8 @@
-class StrengthJudgement
-  attr_reader :best
+module StrengthJudgement
+  def strength_judgement(roles)
 
-  def initialize(roles)
-    @roles = roles
-
-  end
-
-  def strength_judgement
     scores = []
-    @roles.each do |role|
+    roles.each do |role|
       if  role == "ストレートフラッシュ"
         scores << 9
       elsif  role == "フォーカード"
@@ -30,8 +24,6 @@ class StrengthJudgement
       else
         scores << 0
       end
-
-
     end
 
     @best = []
@@ -44,6 +36,9 @@ class StrengthJudgement
       end
 
     end
+
+    return @best
   end
+
 
 end

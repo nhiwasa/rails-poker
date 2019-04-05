@@ -4,6 +4,7 @@ Rails.application.routes .draw do
 
   root to: 'visitors#index'
 
-
   mount API::Root => '/api'
+
+
 end

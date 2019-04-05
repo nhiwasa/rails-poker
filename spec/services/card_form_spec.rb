@@ -38,59 +38,96 @@ describe CardForm do
   end
 
   describe '#check' do
-    it "ストレートフラッシュ" do
-      card = CardForm.new(["H1", "H2","H3", "H4", "H5"])
-      card.check
-      expect(card.role).to eq "ストレートフラッシュ"
+    context "ストレートフラッシュの役が与えられた場合" do
+      before do
+        @card = CardForm.new(["H1", "H2","H3", "H4", "H5"])
+        @card.check
+      end
+      it "@card.roleがストレートフラッシュになる" do
+        expect(@card.role).to eq "ストレートフラッシュ"
+      end
     end
 
-    it "フラッシュ" do
-      card = CardForm.new(["H1", "H2","H3", "H4", "H6"])
-      card.check
-      expect(card.role).to eq "フラッシュ"
+    context "フラッシュの役が与えられた場合" do
+      before do
+        @card = CardForm.new(["H1", "H2","H3", "H4", "H6"])
+        @card.check
+      end
+      it "@card.roleがフラッシュになる" do
+        expect(@card.role).to eq "フラッシュ"
+      end
     end
 
-    it "ストレート" do
-      card = CardForm.new(["C1", "H2","H3", "H4", "H5"])
-      card.check
-      expect(card.role).to eq "ストレート"
+    context "ストレートの役が与えられた場合" do
+      before do
+        @card = CardForm.new(["C1", "H2","H3", "H4", "H5"])
+        @card.check
+      end
+      it "@card.roleがストレートになる" do
+        expect(@card.role).to eq "ストレート"
+      end
     end
 
-    it "フォーカード" do
-      card = CardForm.new(["H1", "C1","D1", "S1", "H6"])
-      card.check
-      expect(card.role).to eq "フォーカード"
+    context "フォーカードの役が与えられた場合" do
+      before do
+        @card = CardForm.new(["H1", "C1","D1", "S1", "H6"])
+        @card.check
+      end
+      it "@card.roleがフォーカードになる" do
+        expect(@card.role).to eq "フォーカード"
+      end
     end
 
-    it "スリーカード" do
-      card = CardForm.new(["H1", "C1","D1", "H4", "H6"])
-      card.check
-      expect(card.role).to eq "スリーカード"
+    context "スリーカードの役が与えられた場合" do
+      before do
+        @card = CardForm.new(["H1", "C1","D1", "H4", "H6"])
+        @card.check
+      end
+      it "@card.roleがスリーカードになる" do
+        expect(@card.role).to eq "スリーカード"
+      end
     end
 
-    it "フルハウス" do
-      card = CardForm.new(["H1", "C1","D1", "C6", "H6"])
-      card.check
-      expect(card.role).to eq "フルハウス"
+    context "フルハウスの役が与えられた場合" do
+      before do
+        @card = CardForm.new(["H1", "C1","D1", "C6", "H6"])
+        @card.check
+      end
+      it "@card.roleがフルハウスになる" do
+        expect(@card.role).to eq "フルハウス"
+      end
     end
 
-    it "ツーペア" do
-      card = CardForm.new(["H1", "C1","H3", "C3", "H6"])
-      card.check
-      expect(card.role).to eq "ツーペア"
+    context "ツーペアの役が与えられた場合" do
+      before do
+        @card = CardForm.new(["H1", "C1","H3", "C3", "H6"])
+        @card.check
+      end
+      it "@card.roleがツーペアになる" do
+        expect(@card.role).to eq "ツーペア"
+      end
     end
 
-    it "ワンペア" do
-      card = CardForm.new(["H1", "C1","H3", "H4", "H6"])
-      card.check
-      expect(card.role).to eq "ワンペア"
+    context "ワンペアの役が与えられた場合" do
+      before do
+        @card = CardForm.new(["H1", "C1","H3", "H4", "H6"])
+        @card.check
+      end
+      it "@card.roleがワンペアになる" do
+        expect(@card.role).to eq "ワンペア"
+      end
     end
 
-    it "ハイカード" do
-      card = CardForm.new(["H1", "H2","H3", "H4", "C6"])
-      card.check
-      expect(card.role).to eq "ハイカード"
+    context "ハイカードの役が与えられた場合" do
+      before do
+        @card = CardForm.new(["H1", "H2","H3", "H4", "C6"])
+        @card.check
+      end
+      it "@card.roleがハイカードになる" do
+        expect(@card.role).to eq "ハイカード"
+      end
     end
+
   end
 
 end

@@ -1,7 +1,10 @@
 class CardForm
 
+  extend StrengthJudgement
   attr_reader :role
   attr_reader :errors
+
+
 
   def initialize(hand)
     @hands = hand
@@ -22,7 +25,7 @@ class CardForm
     end
 
     @hands.each_with_index do |hand, i|
-      number = hand[1..2].to_i
+      number = hand[1..-1].to_i
       if [*(1..13)].include?(number) == false
         @errors << "#{i+1}番目のカード指定文字が不正です。(#{hand})"
       elsif ["S", "D", "C", "H"].include?(hand[0]) == false

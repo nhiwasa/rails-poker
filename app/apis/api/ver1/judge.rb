@@ -4,8 +4,6 @@ module API
     class Judge < Grape::API
       format :json
 
-
-
       # /api/v1/judge/
       post '/judge' do
         hands = params[:cards]
@@ -30,17 +28,17 @@ module API
 
         end
 
-        roles = StrengthJudgement.new(roles)
-        roles.strength_judgement
+
+        @best = CardForm.strength_judgement(roles)
+
 
         results = []
 
-        result.zip(roles.best).each do |x, y|
+        result.zip(@best).each do |x, y|
           results << x.update(y)
         end
 
         reply = [result: results]
-
 
 
 
