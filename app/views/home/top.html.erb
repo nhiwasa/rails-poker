@@ -1,0 +1,35 @@
+
+<html>
+<head>
+  <title>Porkerhands</title>
+  <link rel ="stylesheet" href="home.scss">
+  <meta charset="utf-8">
+</head>
+<body>
+
+  <div class="bkRGBA">
+  <header>
+    <h1> Check a Porker Hand </h1>
+  </header>
+  <div class="contents">
+    <div class="form">
+      <%= form_for("/", method: :post) do %>
+        <%= text_field_tag :cards,'', :placeholder => "S10 H11 D12 C13 H1" %>
+        <%= submit_tag "check" %>
+      <% end %>
+    </div>
+    <div class="hand"><p></p></div>
+
+  </div>
+  <footer>
+    <small>©Copyright 2019 porkerhands All Rights Reserved.</small>
+  </footer>
+  </div>
+
+</body>
+</html>
+
+
+
+
+
